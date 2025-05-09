@@ -1,59 +1,166 @@
-<DOCTYPYPE! html>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scaled=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário de Análise de Crédito</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    <title > Meu Site.com</title>
-    <style> 
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 30px;
+        }
 
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
 
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+
+        .sexo-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .sexo-options label {
+            font-weight: normal;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-row > div {
+            flex: 1;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            margin-top: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388e3c;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #777;
+        }
     </style>
 </head>
 <body>
-    <h1>
-        <b>
-            Fomulario De Analise De Credito
-        </b>
-    </h1>
-    <form action="#">
+    <form action="#" method="post">
+        <h1>Formulário de Análise de Crédito</h1>
 
-        <label for='txtNome'>Nome:   </label><br>
-        <input id='txtNome' type='text' />
-        <br>
-        <label for='txtSobreNome'>SobreNome:  </label><br>
-        <input id='txtSobreNome' type='text' />
-        <br>
-        <label for='txtDataNascimento'>DataNascimento:  </label><br>
-        <input id='txtDataNascimento' type='date' />
-        <br>
-        <label for='txtCpf'>Cpf:  </label><br>
-        <input id='txtCpf' type='text' />
-        <br>
-        <label for='txtEmail'>E-Mail:   </label><br>
-        <input id='txtEmail' type='email' />
-        <br>
-        <label for='txtTelefone'>Telefone: </label><br>
-        <input id='txtTelefone' type='tel' />
-        <br>
-        <label for='txtSexo'>Sexo:          </label><br>
-        
-        <input type="checkbox" id="txtMasculino" value="Masculino">Masculino<br>
-        <input type="checkbox" id="txtFeminino" value="Feminino">Feminino<br>
-        <input type="checkbox" id="txtNãoInformar" value="NãoInformar">NãoInformar<br>
-               
-       <label>Raça ou cor :</label>
-       <select>
-           <option> Branco</option>
-           <option> Negro</option>
-           <option> Indio</option>
-       </select>
-        <input  type="submit" id="btnSubmit" value="Salvar" class="btn btn-close-white"/>
-        <br>
+        <label for="txtNome">Nome:</label>
+        <input id="txtNome" name="nome" type="text" required />
 
+        <label for="txtSobreNome">Sobrenome:</label>
+        <input id="txtSobreNome" name="sobrenome" type="text" required />
+
+        <label for="txtDataNascimento">Data de Nascimento:</label>
+        <input id="txtDataNascimento" name="dataNascimento" type="date" required />
+
+        <label for="txtCpf">CPF:</label>
+        <input id="txtCpf" name="cpf" type="text" required />
+
+        <label for="txtEmail">E-mail:</label>
+        <input id="txtEmail" name="email" type="email" required />
+
+        <label for="txtTelefone">Telefone:</label>
+        <input id="txtTelefone" name="telefone" type="tel" required />
+
+        <label>Sexo:</label>
+        <div class="sexo-options">
+            <label><input type="radio" name="sexo" value="Masculino" required /> Masculino</label>
+            <label><input type="radio" name="sexo" value="Feminino" /> Feminino</label>
+            <label><input type="radio" name="sexo" value="Não Informar" /> Não Informar</label>
+        </div>
+
+        <label for="raca">Raça ou Cor:</label>
+        <select id="raca" name="raca" required>
+            <option value="">Selecione...</option>
+            <option value="Branco">Branco</option>
+            <option value="Preto">Preto</option>
+            <option value="Pardo">Pardo</option>
+            <option value="Amarelo">Amarelo</option>
+            <option value="Indígena">Indígena</option>
+        </select>
+
+        <label for="logradouro">Logradouro:</label>
+        <input id="logradouro" name="logradouro" type="text" required />
+
+        <div class="form-row">
+            <div>
+                <label for="numero">Número:</label>
+                <input id="numero" name="numero" type="text" required />
+            </div>
+            <div>
+                <label for="bairro">Bairro:</label>
+                <input id="bairro" name="bairro" type="text" required />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div>
+                <label for="cidade">Cidade:</label>
+                <input id="cidade" name="cidade" type="text" required />
+            </div>
+            <div>
+                <label for="estado">Estado:</label>
+                <input id="estado" name="estado" type="text" required />
+            </div>
+        </div>
+
+        <label for="cep">CEP:</label>
+        <input id="cep" name="cep" type="text" required />
+
+        <input type="submit" value="Salvar" />
     </form>
-    <footer> 
-
-    </footer>
 </body>
-
 </html>
